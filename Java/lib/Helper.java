@@ -59,6 +59,20 @@ public class Helper {
         return output;
     }
 
+    public ArrayList<ArrayList<Double>> div(double val, ArrayList<ArrayList<Double>> matrix) {
+        ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>();
+
+        for (int row=0; row<matrix.size(); row++) {
+            output.add(new ArrayList<Double>());
+            
+            for (int col=0; col<matrix.get(0).size(); col++) {
+                output.get(row).add(val / matrix.get(row).get(col));
+            }
+        }
+
+        return output;
+    }
+
     public ArrayList<ArrayList<Double>> pow(ArrayList<ArrayList<Double>> matrix, double val) {
         ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>();
 
@@ -101,6 +115,36 @@ public class Helper {
         return output;
     }
 
+    public ArrayList<ArrayList<Double>> exp(ArrayList<ArrayList<Double>> matrix) {
+        ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>();
+        double E = 2.71828;
+
+        for (int row=0; row<matrix.size(); row++) {
+            output.add(new ArrayList<Double>());
+            
+            for (int col=0; col<matrix.get(0).size(); col++) {
+                output.get(row).add(Math.pow(E, matrix.get(row).get(col)));
+            }
+        }
+
+        return output;
+    }
+
+    public ArrayList<ArrayList<Double>> neg(ArrayList<ArrayList<Double>> matrix) {
+        ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>();
+        double E = 2.71828;
+
+        for (int row=0; row<matrix.size(); row++) {
+            output.add(new ArrayList<Double>());
+            
+            for (int col=0; col<matrix.get(0).size(); col++) {
+                output.get(row).add(-matrix.get(row).get(col));
+            }
+        }
+
+        return output;
+    }
+
     public ArrayList<ArrayList<Double>> add_mats(ArrayList<ArrayList<Double>> matA, ArrayList<ArrayList<Double>> matB) {
         ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>();
 
@@ -112,5 +156,19 @@ public class Helper {
         }
 
         return output;
+    }
+
+    public ArrayList<ArrayList<Double>> copy(ArrayList<ArrayList<Double>> mat) {
+        ArrayList<ArrayList<Double>> copy = new ArrayList<ArrayList<Double>>();
+
+        for (int row=0; row<mat.size(); row++) {
+            copy.add(new Arraylist<Double>());
+
+            for (int col=0; col<mat.get(0).size(); col++) {
+                copy.get(row).add(mat.get(row).get(col));
+            }
+        }
+
+        return copy;
     }
 }

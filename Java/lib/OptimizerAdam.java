@@ -37,7 +37,7 @@ public class OptimizerAdam {
             layer.bias_cache = func.zeros_like(layer.biases);
         }
 
-        layer.weights_momentums = func.add_mats_mats(func.mult(beta_1, layer.weight_momentums), func.mult((1 - beta_1), layer.delta_weights));
+        layer.weights_momentums = func.add_mats(func.mult(beta_1, layer.weight_momentums), func.mult((1 - beta_1), layer.delta_weights));
         layer.bias_momentums = func.add_mats(func.mult(beta_1, layer.bias_momentums), func.mult((1 - beta_1), layer.delta_biases));
 
         ArrayList<ArrayList<Double>> weight_momentums_corrected = func.div(layer.weight_momentums, 1 - Math.pow(beta_1, (iterations + 1)));
