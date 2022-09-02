@@ -171,4 +171,14 @@ public class Helper {
 
         return copy;
     }
+
+    public double mean(ArrayList<Double> in) {
+        double sum = 0.0;
+
+        for (Double val : in) {
+            sum += val;
+        }
+
+        return sum / in.size();
+    }
 }
